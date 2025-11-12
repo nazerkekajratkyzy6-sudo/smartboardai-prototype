@@ -1,14 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+const { defineConfig } = require('vite');
+const react = require('@vitejs/plugin-react');
 
-// Настройки сборки для Vercel
-export default defineConfig({
+// CommonJS-версия для Vercel
+module.exports = defineConfig({
   plugins: [react()],
-  root: '.',             // указываем корень проекта
+  root: '.',             // корень проекта
   build: {
-    outDir: 'dist',      // куда складывать собранные файлы
+    outDir: 'dist',
     rollupOptions: {
-      input: 'index.html' // говорим Vite, где стартовый файл
+      input: 'index.html' // точка входа
     }
   },
 });
